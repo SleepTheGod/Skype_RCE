@@ -1,0 +1,60 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skype Auto-Chat Launcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        #redirect-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #0078D4;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #redirect-button:hover {
+            background-color: #005A9E;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Skype Auto-Chat Launcher</h1>
+    <p>
+        Click the button below to start a Skype conversation. Alternatively, use the manual link if the automatic redirection does not work.
+    </p>
+    <button id="redirect-button">Start Skype Chat</button>
+    <p>If the button does not work, <a id="manual-link" href="#" target="_blank">click here</a> to join the Skype chat manually.</p>
+
+    <script>
+        // Define Skype chat link with unique parameters
+        const skypeChatLink = "skype:live:examplechat?chat"; // Replace with actual Skype link
+        const manualLink = document.getElementById('manual-link');
+        const redirectButton = document.getElementById('redirect-button');
+
+        // Function to handle automatic redirection
+        function redirectToSkype() {
+            window.location.href = skypeChatLink;
+        }
+
+        // Attach event listener to button for manual redirection
+        redirectButton.addEventListener('click', () => {
+            redirectToSkype();
+        });
+
+        // Automatic redirection after a delay
+        setTimeout(() => {
+            redirectToSkype();
+        }, 10000); // Redirects after 10 seconds
+
+        // Update the manual link
+        manualLink.href = skypeChatLink;
+    </script>
+</body>
+</html>
